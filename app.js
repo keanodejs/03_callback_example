@@ -1,24 +1,21 @@
+var http = require('http');
+
+console.log('show this first!');
+
 // Call our main function. Pass it a URI and a callback function
-// The callback function is executed when 
-getData('http://example.com', function(myData) {
-    console.log(myData);
+getData('http://keanodejs.github.io/', function(myData) {
+    console.log('Successfull response from: ' + myData.req.connection._host + ' with status code: ' + myData.statusCode);
 });
 
-// console.log() something to the console
+// console.log() some stuff out
 console.log('show this before data ...');
 
-// Definition of the getData function
 function getData(dataURI, callback) {
 
-    // Normally you would actually connect to a server here.
-    // We're just going to simulate a 3-second delay.
-    var timer = setTimeout(function() {
-
-        // Here's some data which we're pretending came from dataURI
-        var data = '<h1>Hello World!</h1>';
-
+    // make a request for the specified url
+    http.get(dataURI, function(res) {
         // run our callback function
-        callback(data);
+        callback(res);
+    });
 
-    }, 3000); // end the timeout function
 }
