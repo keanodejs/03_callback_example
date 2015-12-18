@@ -7,5 +7,7 @@ You can switch between the versions by chosing the different tags, and you can d
 ```javascript   
 git clone https://github.com/keanodejs/03_callback_example.git
 ```
+Inspired from http://cwbuecheler.com/web/tutorials/2013/javascript-callbacks/ where clientside examples are used.
+
 
 
