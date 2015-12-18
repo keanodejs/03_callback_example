@@ -1,21 +1,16 @@
-var http = require('http');
-
-console.log('show this first!');
-
-// Call our main function. Pass it a URI and a callback function
-getData('http://keanodejs.github.io/', function(myData) {
-    console.log('Successfull response from: ' + myData.req.connection._host + ' with status code: ' + myData.statusCode);
+getData('http://example.com', function (myData) {
+    console.log(myData);
 });
 
-// console.log() some stuff out
 console.log('show this before data ...');
 
 function getData(dataURI, callback) {
+    var myData = getSomeData(); // fake function
+    callback(myData);
+}
 
-    // make a request for the specified url
-    http.get(dataURI, function(res) {
-        // run our callback function
-        callback(res);
-    });
-
+function getSomeData() {
+  // this would make a connection to the server and get some html back
+  var data = '<h1>this is data from the server</h1>';
+  return data;
 }
